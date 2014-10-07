@@ -16,3 +16,10 @@ Arduino modules used
 
 Arduino schema
 ![alt tag](https://raw.githubusercontent.com/lucasgiusti/nodearduinorele/master/arduino/schema.png)
+
+
+References
+ - http://getbootstrap.com (Design)
+ - http://nodejs.org (nodejs)
+ - http://socket.io/get-started/chat/ (socket.io)
+ - https://www.robocore.net (arduino store - search by "modulo - relé")
