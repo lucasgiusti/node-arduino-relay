@@ -1,0 +1,10 @@
+{
+  "name": "node-arduino-rele",
+  "version": "0.0.1",
+  "description": "This is the source code for a simple example using Nodejs and Socket.io for activate relé from a Arduino",
+  "dependencies": {
+    "express": "4.3.1",
+    "socket.io": "1.0.2",
+    "node-rest-client": "1.0.3"
+  }
+}
