@@ -1,48 +1,43 @@
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var Client = require('node-rest-client').Client;
-client = new Client();
+var rest = require('restler');
 
 var statusRele = 0;
-
-
-
-//client.get("http://nodeclinica.azurewebsites.net/patients", function (data, response) {
-//    var obj = JSON.parse(data);
-//    if (obj.status == '401') {
-//        io.emit('statusRele', '0');
-//    }
-//    else {
-//        io.emit('statusRele', '1');
-//    }
-
-//});
-
+var arduinoIp = 'http://192.168.0.177';
 
 app.get('/', function (req, res) {
     res.sendfile('index.html');
 });
 
-io.on('connection', function (socket) {
-    socket.on('btnOn', function () {
-        statusRele = 1;
-        emitStatus();
-    });
 
-    socket.on('btnOff', function () {
-        statusRele = 0;
-        emitStatus();
-    });
-
-    socket.on('reloadStatusRele', function () {
-        emitStatus();
-    });
+app.get('/rele/:id', function (req, res) {
+    var id = req.params.id;
+	if(id == 'btnOn')
+	{
+		rest.get(arduinoIp + "?releOn").on('complete', function (data) {
+        		statusRele = 1;
+			io.sockets.emit('statusRele', statusRele);
+		});
+	}
+	else if(id == 'btnOff')
+	{
+		rest.get(arduinoIp + "?releOff").on('complete', function (data) {
+        		statusRele = 0;
+			io.sockets.emit('statusRele', statusRele);
+		});
+	}
+	res.send();
+	
 });
 
-function emitStatus() {
+
+
+
+io.on('connection', function (socket) {
     io.emit('statusRele', statusRele);
-}
+});
+
 
 http.listen(3000, function(){
   console.log('listening on *:3000');

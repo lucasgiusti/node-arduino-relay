@@ -13,16 +13,16 @@
       <article><button type="button" id="btnOn" class="btn btn-primary" style="margin-top: 10px; margin-left: 10px; width: 150px">On</button></article>
       <article><button type="button" id="btnOff" class="btn btn-primary" style="margin-top: 10px; margin-left: 10px; width: 150px">Off</button></article>
       </session>
-    
     <script>
         $('#btnOn').hide();
         $('#btnOff').hide();
 
-        var socket = io();
+
       $('.btn').click(function () {
-          socket.emit(this.id);
+	    $.getJSON('rele/' + this.id, function () {});
       });
 
+      var socket = io();
       socket.on('statusRele', function (status) {
           if (status == '1') {
               $('#btnOn').hide();
@@ -32,10 +32,6 @@
               $('#btnOff').hide();
               $('#btnOn').show();
           }
-      });
-
-      $(document).ready(function () {
-          socket.emit('reloadStatusRele');
       });
     </script>
   </body>
