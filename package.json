@@ -1,5 +1,5 @@
 {
-  "name": "node-arduino-rele",
+  "name": "node-arduino-relay",
   "version": "0.0.1",
   "description": "This is the source code for a simple example using Nodejs and Socket.io for activate relay from a Arduino",
   "dependencies": {
