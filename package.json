@@ -1,7 +1,7 @@
 {
   "name": "node-arduino-rele",
   "version": "0.0.1",
-  "description": "This is the source code for a simple example using Nodejs and Socket.io for activate relé from a Arduino",
+  "description": "This is the source code for a simple example using Nodejs and Socket.io for activate relay from a Arduino",
   "dependencies": {
     "express": "4.3.1",
     "restler": "3.2.2",

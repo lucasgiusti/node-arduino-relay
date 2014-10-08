@@ -1,7 +1,7 @@
-# node-arduino-rele
+# Arduino Relay Controled by Nodejs and Socket.io
 
 This is the source code for a simple example using Nodejs and Socket.io 
-for activate relé from a Arduino microcontroller.
+for activate relay from a Arduino microcontroller.
 
 
 for install Nodejs
