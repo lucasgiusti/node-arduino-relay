@@ -8,7 +8,7 @@ for install Nodejs
  - http://nodejs.org
 
 
-open on two or more browsers
+open on two or more browsers (Socket.io)
 ![alt tag](https://raw.githubusercontent.com/lucasgiusti/nodearduinorele/master/browser.png)
 
 Arduino modules used
