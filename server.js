@@ -15,17 +15,17 @@ app.get('/rele/:id', function (req, res) {
     var id = req.params.id;
 	if(id == 'btnOn')
 	{
-		//rest.get(arduinoIp + "?releOn").on('complete', function (data) {
+		rest.get(arduinoIp + "?releOn").on('complete', function (data) {
         		statusRele = 1;
 			io.sockets.emit('statusRele', statusRele);
-		//});
+		});
 	}
 	else if(id == 'btnOff')
 	{
-		//rest.get(arduinoIp + "?releOff").on('complete', function (data) {
+		rest.get(arduinoIp + "?releOff").on('complete', function (data) {
         		statusRele = 0;
 			io.sockets.emit('statusRele', statusRele);
-		//});
+		});
 	}
 	res.send();
 	
